@@ -21,11 +21,15 @@ try:
   else:
     video_url = ""
 
-  # 2. Coba baca file data.json yang sudah ada sebelumnya
+  # 2. Baca file data.json yang sudah ada
   try:
     with open("data.json", "r", encoding="utf-8") as f:
       data = json.load(f)
   except (FileNotFoundError, json.JSONDecodeError):
+    data = []
+
+  # Jika data bukan berupa list, jadikan list kosong
+  if not isinstance(data, list):
     data = []
 
   # 3. Data baru untuk Perfect World
@@ -51,22 +55,23 @@ try:
       ],
   }
 
-  # 4. Periksa apakah Perfect World sudah ada di dalam data.json
-  updated = False
+  # 4. Cek apakah "perfect-world" sudah ada di dalam list data.json
+  found = False
   for item in data:
     if item.get("id") == "perfect-world":
       item["episodes"] = perfect_world_data["episodes"]
-      updated = True
+      found = True
       break
 
-  if not updated:
+  # Jika belum ada sama sekali, tambahkan sebagai data baru di samping Renegade Immortal
+  if not found:
     data.append(perfect_world_data)
 
-  # 5. Simpan kembali ke data.json
+  # 5. Simpan kembali semuanya ke file data.json
   with open("data.json", "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
-  print("File data.json berhasil diperbarui dengan aman!")
+  print("File data.json berhasil diperbarui dengan Perfect World!")
 
 except Exception as e:
-  print(f"Terjadi kesalahan saat mengambil data: {e}")
+  print(f"Terjadi kesalahan: {e}")
