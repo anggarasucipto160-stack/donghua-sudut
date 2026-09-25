@@ -41,7 +41,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         type : "free",
         rating: 8.8,
-        poster: "renegade-immortal.jpg",
+        poster: "renegade-immortal.jpg",[span_2](start_span)[span_2](end_span)
         description: "Wang Lin memulai perjalanan kultivasinya dari seorang pemuda biasa.",
         episodes: Array.from({ length: 159 }, (_, index) => {
             const epNum = index + 1;
@@ -67,7 +67,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster: "btth-season-5.jpg",
+        poster: "BTTH SESON 5.jpg",[span_3](start_span)[span_3](end_span)
         description: "Xiao Yan kehilangan kekuatannya secara misterius dan melanjutkan perjalanan kultivasinya di musim kelima.",
         episodes: Array.from({ length: 211 }, (_, index) => {
             const epNum = index + 1;
@@ -92,7 +92,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.5,
         type: "free",
-        poster: "perfect-world.jpg",
+        poster: "perfect-world.jpg",[span_4](start_span)[span_4](end_span)
         description: "Shi Hao adalah seorang anak berbakat yang tumbuh dalam dunia penuh kekuatan.",
         episodes: Array.from({ length: 288 }, (_, index) => {
             const epNum = index + 1;
@@ -115,7 +115,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: "jade-dynasty.jpg",
+        poster: "jade-dynasty.jpg",[span_5](start_span)[span_5](end_span)
         description: "Zhang Xiaofan selamat dari pembantaian desanya dan bergabung dengan Sekte Qingyun, memulai takdirnya yang luar biasa.",
         episodes: Array.from({ length: 86 }, (_, index) => {
             const epNum = index + 1;
@@ -155,7 +155,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.4,
         type: "free",
-        poster: "refining-qi-100000-years.jpg",
+        poster: "refining-qi-100000-years.jpg",[span_6](start_span)[span_6](end_span)
         description: "Lu Yang telah berkultivasi dan menyempurnakan Qi selama 100.000 tahun, terjebak di tingkat Qi Refining tanpa bisa naik tingkat, namun memiliki kekuatan yang luar biasa.",
         episodes: Array.from({ length: 379 }, (_, index) => {
             const epNum = index + 1;
@@ -198,7 +198,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster: "martial-master.jpg",
+        poster: "martial-master.jpg",[span_7](start_span)[span_7](end_span)
         description: "Qin Chen, seorang ahli martial arts legendaris yang dikhianati dan mati, terlahir kembali di tubuh seorang pemuda untuk membalas dendam dan mencapai puncak kekuatan.",
         episodes: Array.from({ length: 694 }, (_, index) => {
             const epNum = index + 1;
@@ -218,7 +218,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.8,
         type: "free",
-        poster: "beyond-times-gaze.jpg",
+        poster: "beyond-times-gaze.jpg",[span_8](start_span)[span_8](end_span)
         description: "Sebuah kisah epik kultivasi penuh misteri yang membawa penonton melintasi ruang, waktu, dan takdir dunia fantasi yang luas.",
         episodes: Array.from({ length: 40 }, (_, index) => {
             const epNum = index + 1;
@@ -241,7 +241,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: "azure-legacy.jpg",
+        poster: "azure-legacy.jpg",[span_9](start_span)[span_9](end_span)
         description: "Meng Chuan bertekad menjadi yang terkuat untuk membalas dendam keluarganya dan melindungi umat manusia dari invasi iblis yang kejam.",
         episodes: Array.from({ length: 95 }, (_, index) => {
             const epNum = index + 1;
@@ -329,7 +329,6 @@ function toast(message) {
     });
   }
 
-  // Interaksi tampil/sembunyi instruksi pembayaran berdasarkan pilihan paket
   const planRadios = document.querySelectorAll('input[name="plan"]');
   const vipPaymentSection = document.getElementById('vipPaymentSection');
 
@@ -348,7 +347,6 @@ function toast(message) {
   updateAccountUI();
 });
 
-// --- LOGIKA PENDAFTARAN & PEMBAYARAN VIP (BCA & GOPAY) ---
 const regForm = $("#registerForm");
 if (regForm) {
   regForm.addEventListener("submit", (e) => {
@@ -466,7 +464,6 @@ if (logoutBtn) {
   });
 }
 
-// --- LOGIKA MODAL LUPA PASSWORD & VERIFIKASI ---
 const forgotBtn = $("#forgotBtn");
 const forgotModal = $("#forgotModal");
 const forgotModalClose = $("#forgotModalClose");
@@ -694,7 +691,6 @@ if (accountModal) {
   });
 }
 
-// Tombol Tutup untuk Modal Episode / Pembayaran
 const episodeModalClose = $("#episodeModalClose");
 if (episodeModalClose) {
   episodeModalClose.addEventListener("click", () => $("#episodeModal").classList.remove("show"));
@@ -714,7 +710,7 @@ function updateAccountUI() {
   const profileBtn = $("#profileBtn");
   const authView = $("#authView");
   const catalogView = $("#catalogView");
-  const welcomeText = $("#welcomeUserText");
+  const welcomeText = $("#welcomeUserTest");
 
   if (!user) {
     if (status) status.textContent = "Belum login";
@@ -752,7 +748,6 @@ function escapeHTML(value) {
   }[m]));
 }
 
-// Fungsi untuk menyalin teks rekening/gopay ke clipboard
 function copyToClipboard(text, successMessage) {
   navigator.clipboard.writeText(text).then(() => {
     toast(successMessage);
