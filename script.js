@@ -2,7 +2,7 @@ const USERS_KEY = "ds_users_v1";
 const SESSION_KEY = "ds_session_v1";
 
 // 1. Definisikan fungsi pembantu ($dan$$) di paling atas
-const $ = (s) => document.querySelector(s);  const $$ = (s) => document.querySelectorAll(s);
+const $ = (s) => document.querySelector(s);   const $$ = (s) => document.querySelectorAll(s);
 
 // Variabel untuk sistem Pagination & Search
 let currentPage = 1;
@@ -26,7 +26,7 @@ window.openAccountModal = function() {
       </div>
     </div>
   `;
-  
+
   const modal = $("#accountModal");
   if (modal) modal.classList.add("show");
 };
@@ -41,7 +41,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         type : "free",
         rating: 8.8,
-        poster: renegade-immortal.jpg",
+        poster: "renegade-immortal.jpg",
         description: "Wang Lin memulai perjalanan kultivasinya dari seorang pemuda biasa.",
         episodes: Array.from({ length: 159 }, (_, index) => {
             const epNum = index + 1;
@@ -67,7 +67,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster: BTTH SESON 5.jpg",
+        poster: "btth-season-5.jpg",
         description: "Xiao Yan kehilangan kekuatannya secara misterius dan melanjutkan perjalanan kultivasinya di musim kelima.",
         episodes: Array.from({ length: 211 }, (_, index) => {
             const epNum = index + 1;
@@ -92,7 +92,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.5,
         type: "free",
-        poster: perfect-world.jpg",
+        poster: "perfect-world.jpg",
         description: "Shi Hao adalah seorang anak berbakat yang tumbuh dalam dunia penuh kekuatan.",
         episodes: Array.from({ length: 288 }, (_, index) => {
             const epNum = index + 1;
@@ -115,7 +115,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster:jade-dynasty.jpg",
+        poster: "jade-dynasty.jpg",
         description: "Zhang Xiaofan selamat dari pembantaian desanya dan bergabung dengan Sekte Qingyun, memulai takdirnya yang luar biasa.",
         episodes: Array.from({ length: 86 }, (_, index) => {
             const epNum = index + 1;
@@ -135,7 +135,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: swallowed-star.jpg",
+        poster: "swallowed-star.jpg",
         description: "Luo Feng berjuang di dunia masa depan yang hancur akibat virus misterius dan invasi monster raksasa.",
         episodes: Array.from({ length: 242 }, (_, index) => {
             const epNum = index + 1;
@@ -155,7 +155,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.4,
         type: "free",
-        poster: refining-qi-100000-years.jpg",
+        poster: "refining-qi-100000-years.jpg",
         description: "Lu Yang telah berkultivasi dan menyempurnakan Qi selama 100.000 tahun, terjebak di tingkat Qi Refining tanpa bisa naik tingkat, namun memiliki kekuatan yang luar biasa.",
         episodes: Array.from({ length: 379 }, (_, index) => {
             const epNum = index + 1;
@@ -178,7 +178,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.8,
         type: "free",
-        poster: shrouding-the-heavens.jpg",
+        poster: "shrouding-the-heavens.jpg",
         description: "Ye Fan dan teman-temannya terseret ke dunia lain oleh sembilan naga penarik peti mati misterius, memulai perjalanan kultivasi yang epik di alam semesta yang luas.",
         episodes: Array.from({ length: 182 }, (_, index) => {
             const epNum = index + 1;
@@ -198,7 +198,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster:martial-master.jpg",
+        poster: "martial-master.jpg",
         description: "Qin Chen, seorang ahli martial arts legendaris yang dikhianati dan mati, terlahir kembali di tubuh seorang pemuda untuk membalas dendam dan mencapai puncak kekuatan.",
         episodes: Array.from({ length: 694 }, (_, index) => {
             const epNum = index + 1;
@@ -218,7 +218,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.8,
         type: "free",
-        poster:beyond-times-gaze.jpg",
+        poster: "beyond-times-gaze.jpg",
         description: "Sebuah kisah epik kultivasi penuh misteri yang membawa penonton melintasi ruang, waktu, dan takdir dunia fantasi yang luas.",
         episodes: Array.from({ length: 40 }, (_, index) => {
             const epNum = index + 1;
@@ -241,7 +241,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster:azure-legacy.jpg",
+        poster: "azure-legacy.jpg",
         description: "Meng Chuan bertekad menjadi yang terkuat untuk membalas dendam keluarganya dan melindungi umat manusia dari invasi iblis yang kejam.",
         episodes: Array.from({ length: 95 }, (_, index) => {
             const epNum = index + 1;
@@ -264,7 +264,7 @@ const DONGHUA_LIST = [
         status: "Completed",
         rating: 8.7,
         type: "free",
-        poster:tomb-of-fallen-gods-s3.jpg",
+        poster: "tomb-of-fallen-gods-s3.jpg",
         description: "Chen Nan bangkit kembali setelah ribuan tahun di makam para dewa. Musim ketiga ini melanjutkan pertarungan sengit penuh misteri hingga cerita akhirnya telah tamat.",
         episodes: Array.from({ length: 52 }, (_, index) => {
             const epNum = index + 1;
@@ -305,10 +305,10 @@ function currentSession() {
 }
 
 function toast(message) {
-  const el = $("#toast");               if (!el) return;               el.textContent = message;               el.classList.add("show");               clearTimeout(window.__toast);               window.__toast = setTimeout(() => el.classList.remove("show"), 2800);     }    function switchTab(tab) {               $$(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
+  const el = $("#toast");                  if (!el) return;                  el.textContent = message;                  el.classList.add("show");                  clearTimeout(window.__toast);                  window.__toast = setTimeout(() => el.classList.remove("show"), 2800);      }      function switchTab(tab) {                  $$(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
   if ($("#loginPanel")) $("#loginPanel").classList.toggle("active", tab === "login");
-  if ($("#registerPanel")) $("#registerPanel").classList.toggle("active", tab === "register");     }    document.addEventListener("DOMContentLoaded", () => {   $$(".tab").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
-  $$("[data-switch]").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.switch)));                            $$
+  if ($("#registerPanel")) $("#registerPanel").classList.toggle("active", tab === "register");      }      document.addEventListener("DOMContentLoaded", () => {      $$(".tab").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+  $$("[data-switch]").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.switch)));                                  $$
 (".eye").forEach(btn => {
     btn.addEventListener("click", () => {
       const input = document.getElementById(btn.dataset.target);
@@ -410,7 +410,7 @@ function showVipPaymentModal(userData) {
 
   const episodeModalContent = document.getElementById('episodeModalContent');
   const episodeModal = document.getElementById('episodeModal');
-  
+
   if (episodeModalContent && episodeModal) {
     episodeModalContent.innerHTML = modalContent;
     episodeModal.classList.add('show');
@@ -431,7 +431,7 @@ function registerUser(userData) {
   users.push(userData);
   saveUsers(users);
   setSession(userData, true);
-  
+
   if (regForm) regForm.reset();
   const nonVipInput = document.querySelector('input[name="plan"][value="nonvip"]');
   if (nonVipInput) nonVipInput.checked = true;
@@ -503,7 +503,7 @@ if (forgotStep1Form) {
     const targetInput = $("#recoveryTarget").value.trim().toLowerCase();
     const verifyMethodRadio = document.querySelector('input[name="verifyMethod"]:checked');
     const method = verifyMethodRadio ? verifyMethodRadio.value : "email";
-    
+
     const users = getUsers();
     const foundUser = users.find(u => u.email === targetInput || u.phone === targetInput || u.email.startsWith(targetInput));
 
@@ -522,7 +522,7 @@ if (forgotStep1Form) {
         phoneTarget = '62' + phoneTarget.slice(1);
       }
       const message = encodeURIComponent(`Halo ${foundUser.name}, kode OTP pemulihan akun Anda adalah: *${randomOtp}*. Berlaku 5 menit.`);
-      
+
       setTimeout(() => {
         window.open(`https://wa.me/${phoneTarget}?text=${message}`, "_blank");
         forgotStep1Form.classList.add("hidden");
@@ -582,7 +582,7 @@ if (forgotStep2Form) {
 
     saveUsers(users);
     toast("Password berhasil diubah! Silakan login.");
-    
+
     forgotModal.classList.remove("show");
     forgotStep2Form.reset();
   });
@@ -592,7 +592,7 @@ function renderCatalog() {
   const grid = $("#donghuaGrid");
   const paginationNav = $("#paginationNav");
   if (!grid) return;
-  
+
   const filteredItems = DONGHUA_LIST.filter(item => 
     item.title.toLowerCase().includes(searchQuery) || 
     (item.chineseTitle && item.chineseTitle.toLowerCase().includes(searchQuery))
@@ -738,7 +738,7 @@ function updateAccountUI() {
   if (welcomeText) {
     welcomeText.textContent = `Halo, ${escapeHTML(user.name)}! Selamat menikmati seluruh tayangan donghua.`;
   }
-  
+
   renderCatalog();
 }
 
