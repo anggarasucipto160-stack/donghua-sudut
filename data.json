@@ -1,0 +1,40 @@
+[
+  {
+    "id": "renegade-immortal",
+    "title": "Renegade Immortal",
+    "chineseTitle": "仙逆",
+    "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
+    "status": "Ongoing",
+    "type": "free",
+    "rating": 8.8,
+    "poster": "./Images/renegade-immortal.jpg",
+    "description": "Wang Lin memulai perjalanan kultivasinya dari seorang pemuda biasa.",
+    "episodes": [
+      {
+        "episode_number": 1,
+        "title": "Episode 1",
+        "video_url": "https://ok.ru/videoembed/6985057634994"
+      },
+      {
+        "episode_number": 2,
+        "title": "Episode 2",
+        "video_url": "https://ok.ru/videoembed/6985605253810"
+      },
+      {
+        "episode_number": 3,
+        "title": "Episode 3",
+        "video_url": "https://ok.ru/videoembed/6985967143602"
+      },
+      {
+        "episode_number": 4,
+        "title": "Episode 4",
+        "video_url": "https://ok.ru/videoembed/7008755780274"
+      },
+      {
+        "episode_number": 5,
+        "title": "Episode 5",
+        "video_url": "https://ok.ru/videoembed/7031128853170"
+      }
+    ]
+  }
+]

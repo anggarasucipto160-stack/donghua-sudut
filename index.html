@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080A12">
+  <meta name="description" content="DonghuaSudut — Platform streaming donghua berkualitas tinggi dengan pilihan akun VIP dan Non-VIP.">
+  <title>DonghuaSudut — Portal Streaming & Katalog Donghua</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Optimized & Smoother Dynamic Styles (GPU Accelerated) -->
+  <style>
+    /* Mengaktifkan Akselerasi Hardware GPU agar transisi super ringan & mulus */
+    .auth-card, .plan-card, .donghua-card, .modal-box {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      backface-visibility: hidden;
+      will-change: transform, box-shadow;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    }
+
+    .auth-card:hover, .plan-card:hover, .donghua-card:hover {
+      transform: translateY(-6px) rotateX(2deg) rotateY(-2deg) translateZ(0);
+      box-shadow: 0 20px 40px rgba(0, 242, 254, 0.15), 0 0 25px rgba(118, 75, 162, 0.1);
+    }
+
+    /* Animasi Tulisan Menari Elegan yang Dioptimalkan */
+    @keyframes danceAndGlow {
+      0%, 100% {
+        transform: translateY(0px) translateZ(0);
+        text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+      }
+      50% {
+        transform: translateY(-3px) translateZ(0);
+        text-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+      }
+    }
+
+    .hero-copy h1 span {
+      display: inline-block;
+      animation: danceAndGlow 5s ease-in-out infinite;
+      will-change: transform, text-shadow;
+      background: linear-gradient(135deg, #00f2fe 0%, #f1c40f 50%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand strong span {
+      display: inline-block;
+      animation: danceAndGlow 3.5s ease-in-out infinite;
+      will-change: transform, text-shadow;
+      color: var(--gold, #f1c40f);
+    }
+
+    /* Logo Naga Bernapas yang Lebih Halus */
+    @keyframes liveDragon {
+      0%, 100% { transform: translateY(0px) scale(1) translateZ(0); filter: drop-shadow(0 0 4px rgba(0,242,254,0.3)); }
+      50% { transform: translateY(-4px) scale(1.05) translateZ(0); filter: drop-shadow(0 0 12px rgba(241,196,15,0.6)); }
+    }
+
+    .brand .logo i {
+      animation: liveDragon 3s ease-in-out infinite;
+      will-change: transform, filter;
+      display: inline-block;
+    }
+
+    /* Partikel Latar Belakang Lebih Ringan & Tenang */
+    .orb-a {
+      animation: floatOrbA 14s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .orb-b {
+      animation: floatOrbB 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes floatOrbA {
+      0% { transform: translate(0, 0) translateZ(0); opacity: 0.4; }
+      100% { transform: translate(40px, 50px) translateZ(0); opacity: 0.7; }
+    }
+
+    @keyframes floatOrbB {
+      0% { transform: translate(0, 0) translateZ(0); opacity: 0.3; }
+      100% { transform: translate(-50px, -40px) translateZ(0); opacity: 0.6; }
+    }
+
+    /* Efek Pulse Halus pada Badge VIP */
+    .plan-card.vip .popular, .plan-option.vip-option {
+      animation: vipPulse 3.5s ease-in-out infinite;
+      will-change: box-shadow;
+    }
+
+    @keyframes vipPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.3); }
+      50% { box-shadow: 0 0 15px 2px rgba(241, 196, 15, 0.15); }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Background Ambient Effects -->
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+  </div>
+
+  <!-- Header / Topbar Navigation -->
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="DonghuaSudut Beranda">
+      <span class="logo"><i class="fa-solid fa-dragon"></i></span>
+      <strong>Donghua<span>Sudut</span></strong>
+    </a>
+    <div class="account-area">
+      <span id="accountStatus" class="account-status">Belum login</span>
+      <button id="profileBtn" class="btn btn-ghost hidden" onclick="openAccountModal()" aria-label="Buka Profil Pengguna">
+        <i class="fa-solid fa-user-circle"></i> Profil
+      </button>
+      <button id="logoutBtn" class="btn btn-ghost hidden" aria-label="Keluar dari Akun">
+        <i class="fa-solid fa-right-from-bracket"></i> Keluar
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="page">
+    
+    <!-- VIEW 1: AUTH & PLANS (Default sebelum login) -->
+    <section id="authView" aria-label="Autentikasi Pengguna dan Informasi Paket">
+      <div class="hero-copy">
+        <span class="eyebrow"><i class="fa-solid fa-fire-flame-curved"></i> Portal Dimensi Kultivasi & Aksi Terbaik</span>
+        <h1>Lampaui Batas Realita, Masuki <span>Dunia Donghua Epik.</span></h1>
+        <p>Saksikan pertarungan kultivator terkuat, visual memukau, dan alur cerita legendaris. Masuk sekarang untuk memulai perjalanan spiritualmu ke puncak keabadian.</p>
+        <div class="feature-row" aria-label="Keunggulan Layanan">
+          <div><i class="fa-solid fa-bolt"></i><span>Streaming Ultra HD</span></div>
+          <div><i class="fa-solid fa-fire"></i><span>Update Episode Kilat</span></div>
+          <div><i class="fa-solid fa-crown"></i><span>Koleksi Eksklusif</span></div>
+        </div>
+      </div>
+
+      <div class="auth-layout">
+        <!-- Kotak Formulir Login & Pendaftaran -->
+        <div class="auth-card">
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="login" role="tab" aria-selected="true">Login</button>
+            <button class="tab" data-tab="register" role="tab" aria-selected="false">Daftar</button>
+          </div>
+
+          <!-- Panel Login -->
+          <div id="loginPanel" class="panel active" role="tabpanel">
+            <h2>Lanjutkan Perjalananmu</h2>
+            <p class="muted">Gerbang kultivasi telah terbuka. Masukkan kredensialmu.</p>
+            <form id="loginForm" novalidate>
+              <label for="loginEmail">Email
+                <div class="input-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input id="loginEmail" type="email" placeholder="nama@email.com" autocomplete="email" required>
+                </div>
+              </label>
+              <label for="loginPassword">Password
+                <div class="input-wrap">
+                  <i class="fa-solid fa-lock"></i>
+                  <input id="loginPassword" type="password" placeholder="Minimal 6 karakter" autocomplete="current-password" required minlength="6">
+                  <button type="button" class="eye" data-target="loginPassword" aria-label="Tampilkan atau sembunyikan password">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </label>
+              <div class="form-line">
+                <label class="check">
+                  <input id="remember" type="checkbox"> Ingat saya
+                </label>
+                <button type="button" class="link-btn" id="forgotBtn">Lupa password?</button>
+              </div>
+              <button class="btn btn-primary full" type="submit">
+                <i class="fa-solid fa-right-to-bracket"></i> Masuk Gerbang
+              </button>
+            </form>
+            <p class="switch">Belum memiliki akun? <button type="button" class="link-btn" data-switch="register">Mulai Kultivasi</button></p>
+          </div>
+
+          <!-- Panel Pendaftaran -->
+          <div id="registerPanel" class="panel" role="tabpanel">
+            <h2>Mulai Jalur Kultivasi</h2>
+            <p class="muted">Pilih tingkat keanggotaanmu dan taklukkan dunia persilatan.</p>
+            <form id="registerForm" novalidate>
+              <label for="regName">Nama Kultivator
+                <div class="input-wrap">
+                  <i class="fa-solid fa-user"></i>
+                  <input id="regName" type="text" placeholder="Nama / Gelar Anda" autocomplete="name" required minlength="2">
+                </div>
+              </label>
+              <label for="regEmail">Email Aktif
+                <div class="input-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input id="regEmail" type="email" placeholder="nama@email.com" autocomplete="email" required>
+                </div>
+              </label>
+              <label for="regPassword">Password
+                <div class="input-wrap">
+                  <i class="fa-solid fa-lock"></i>
+                  <input id="regPassword" type="password" placeholder="Minimal 6 karakter" autocomplete="new-password" required minlength="6">
+                  <button type="button" class="eye" data-target="regPassword" aria-label="Tampilkan atau sembunyikan password">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </label>
+              
+              <span class="label-title" style="font-size: 0.78rem; color: #cbd5e1; font-weight: 700; display: block; margin-top: 4px;">Pilih Tingkatan Akun</span>
+              <div class="plan-mini">
+                <label class="plan-option">
+                  <input type="radio" name="plan" value="nonvip" checked>
+                  <span><b>Murid Sekte (Non-VIP)</b><small>Akses tontonan standar</small></span>
+                </label>
+                <label class="plan-option vip-option">
+                  <input type="radio" name="plan" value="vip">
+                  <span><b><i class="fa-solid fa-crown"></i> Tetua Agung (VIP)</b><small>Akses mutlak tanpa batas</small></span>
+                </label>
+              </div>
+
+              <!-- Kotak Instruksi Pembayaran VIP (BCA & GoPay) -->
+              <div id="vipPaymentSection" class="payment-box hidden">
+                <h4 style="font-size: 0.9rem; color: var(--gold); margin-bottom: 6px;">
+                  <i class="fa-solid fa-wallet"></i> Mahar Peningkatan Tingkatan VIP
+                </h4>
+                <p class="muted" style="font-size: 0.75rem; margin-bottom: 10px; line-height: 1.4;">
+                  Silakan lakukan upeti/transfer ke rekening resmi sekte di bawah ini sebelum mendaftar:
+                </p>
+                
+                <div class="payment-channels">
+                  <!-- Channel BCA -->
+                  <div class="payment-channel">
+                    <b><i class="fa-solid fa-building-columns" style="color:var(--cyan)"></i> Bank BCA</b>
+                    <span id="bcaNumber">1234567890</span>
+                    <small style="display:block; color:var(--muted); font-size:0.6rem; margin-top:2px;">PT Donghua Sudut</small>
+                    <button type="button" class="btn btn-ghost" onclick="copyToClipboard('1234567890', 'Nomor BCA berhasil disalin!')" style="margin-top:6px; padding:4px 8px; font-size:0.65rem;">
+                      <i class="fa-solid fa-copy"></i> Salin
+                    </button>
+                  </div>
+
+                  <!-- Channel GoPay -->
+                  <div class="payment-channel">
+                    <b><i class="fa-brands fa-whatsapp" style="color:#25d366"></i> GoPay</b>
+                    <span id="gopayNumber">081234567890</span>
+                    <small style="display:block; color:var(--muted); font-size:0.6rem; margin-top:2px;">DonghuaSudut Official</small>
+                    <button type="button" class="btn btn-ghost" onclick="copyToClipboard('081234567890', 'Nomor GoPay berhasil disalin!')" style="margin-top:6px; padding:4px 8px; font-size:0.65rem;">
+                      <i class="fa-solid fa-copy"></i> Salin
+                    </button>
+                  </div>
+                </div>
+
+                <div style="background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); padding: 8px 10px; border-radius: 8px; font-size: 0.72rem; color: #cbd5e1; margin-top: 10px;">
+                  <i class="fa-solid fa-circle-exclamation" style="color:var(--gold);"></i> Tingkatan VIP akan disahkan oleh Ketua Sekte (Admin) dalam 1-5 menit.
+                </div>
+              </div>
+
+              <button class="btn btn-primary full" type="submit" style="margin-top: 10px;">
+                <i class="fa-solid fa-user-plus"></i> Bangkitkan Akun
+              </button>
+            </form>
+            <p class="switch">Sudah punya akun? <button type="button" class="link-btn" data-switch="login">Masuk</button></p>
+          </div>
+        </div>
+
+        <!-- Perbandingan Paket Membership -->
+        <aside class="plans" aria-label="Perbandingan Paket">
+          <div class="plan-card nonvip">
+            <div class="plan-head">
+              <span class="plan-icon"><i class="fa-solid fa-user"></i></span>
+              <div><h3>Murid Sekte</h3><small>Akses Gratis Selamanya</small></div>
+            </div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Streaming kualitas standar (HD)</li>
+              <li><i class="fa-solid fa-check"></i> Bookmark episode favorit</li>
+              <li><i class="fa-solid fa-check"></i> Riwayat kultivasi tersimpan</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> Arsip rahasia tingkat tinggi</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> Jalur kecepatan kilat</li>
+            </ul>
+          </div>
+
+          <div class="plan-card vip">
+            <div class="popular">TINGKAT TERTINGGI</div>
+            <div class="plan-head">
+              <span class="plan-icon"><i class="fa-solid fa-crown"></i></span>
+              <div><h3>Tetua Agung (VIP)</h3><small>Kekuasaan Tanpa Batas</small></div>
+            </div>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Seluruh fasilitas Murid Sekte</li>
+              <li><i class="fa-solid fa-check"></i> Akses mutlak arsip donghua VIP</li>
+              <li><i class="fa-solid fa-check"></i> Server prioritas tanpa jeda buff</li>
+              <li><i class="fa-solid fa-check"></i> Bebas hambatan penayangan</li>
+              <li><i class="fa-solid fa-check"></i> Lencana kehormatan Tetua Agung</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VIEW 2: KATALOG DONGHUA (Muncul setelah Login/Register) -->
+    <section id="catalogView" class="hidden" aria-label="Katalog Donghua">
+      <div class="catalog-header">
+        <h2>Katalog Donghua Tersedia</h2>
+        <p id="welcomeUserText" class="muted">Selamat menonton!</p>
+      </div>
+
+      <!-- Kotak Pencarian Donghua -->
+      <div style="margin: 15px 0 24px 0;">
+        <div style="position: relative; width: 100%;">
+          <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8;" aria-hidden="true">
+            <i class="fa-solid fa-search"></i>
+          </span>
+          <input type="text" id="searchInput" placeholder="Cari judul donghua favoritmu..." aria-label="Cari judul donghua" style="width: 100%; padding: 12px 15px 12px 42px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9rem; outline: none; box-sizing: border-box; transition: 0.2s;" />
+        </div>
+      </div>
+
+      <div id="donghuaGrid" class="donghua-grid"></div>
+      
+      <!-- Navigasi Pagination -->
+      <nav id="paginationNav" aria-label="Navigasi Halaman Katalog" style="display: flex; justify-content: center; gap: 8px; margin-top: 30px;"></nav>
+    </section>
+  </main>
+
+  <!-- Notifikasi Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Modal Profil Akun -->
+  <div id="accountModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalProfilTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Tutup Modal Profil"><i class="fa-solid fa-xmark"></i></button>
+      <div id="accountContent"></div>
+    </div>
+  </div>
+
+  <!-- Modal Daftar Episode / Video Player -->
+  <div id="episodeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalEpisodeTitle">
+    <div class="modal-box" style="max-width: 500px;">
+      <button class="modal-close" id="episodeModalClose" aria-label="Tutup Pemutar Episode"><i class="fa-solid fa-xmark"></i></button>
+      <div id="episodeModalContent"></div>
+    </div>
+  </div>
+
+  <!-- MODAL LUPA PASSWORD & VERIFIKASI (EMAIL / WHATSAPP) -->
+  <div id="forgotModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalResetTitle">
+    <div class="modal-box" style="max-width: 420px;">
+      <button class="modal-close" id="forgotModalClose" aria-label="Tutup Modal Reset Password"><i class="fa-solid fa-xmark"></i></button>
+      <div id="forgotModalContent">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-size: 2.5rem; color: var(--cyan); margin-bottom: 10px;" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 id="modalResetTitle" style="font-size: 1.3rem; color: #fff;">Reset Password</h3>
+          <p class="muted">Pilih metode verifikasi untuk memulihkan akses akun Anda.</p>
+        </div>
+
+        <!-- Langkah 1: Masukkan Email/WA & Pilih Metode -->
+        <form id="forgotStep1Form" novalidate>
+          <label for="recoveryTarget">Email atau Nomor WhatsApp Terdaftar
+            <div class="input-wrap">
+              <i class="fa-solid fa-address-card"></i>
+              <input id="recoveryTarget" type="text" placeholder="nama@email.com / 08123456789" required>
+            </div>
+          </label>
+          <label style="margin-top: 12px; display: block;">Kirim Kode Verifikasi Melalui:</label>
+          <div class="plan-mini" style="margin-bottom: 16px;">
+            <label class="plan-option" style="cursor: pointer;">
+              <input type="radio" name="verifyMethod" value="email" checked>
+              <span><b><i class="fa-solid fa-envelope" style="color:var(--cyan)"></i> Email</b><small>Kirim Kode OTP</small></span>
+            </label>
+            <label class="plan-option" style="cursor: pointer;">
+              <input type="radio" name="verifyMethod" value="whatsapp">
+              <span><b><i class="fa-brands fa-whatsapp" style="color:#25d366"></i> WhatsApp</b><small>Kirim via WA</small></span>
+            </label>
+          </div>
+          <button class="btn btn-primary full" type="submit">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Kode OTP
+          </button>
+        </form>
+
+        <!-- Langkah 2: Masukkan OTP & Password Baru -->
+        <form id="forgotStep2Form" class="hidden" style="margin-top: 15px;" novalidate>
+          <div style="background: rgba(0,242,254,0.06); border: 1px solid rgba(0,242,254,0.2); padding: 12px 14px; border-radius: 12px; font-size: 0.78rem; color: var(--cyan); margin-bottom: 12px;">
+            <i class="fa-solid fa-circle-info"></i> Kode OTP simulasi Anda adalah: <b id="otpDisplay" style="color:#fff; font-size:0.9rem;">123456</b>
+          </div>
+          <label for="otpInput">Masukkan Kode OTP 6 Digit
+            <div class="input-wrap">
+              <i class="fa-solid fa-key"></i>
+              <input id="otpInput" type="text" placeholder="123456" maxlength="6" inputmode="numeric" required>
+            </div>
+          </label>
+          <label for="newPasswordInput" style="margin-top: 10px;">Password Baru
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input id="newPasswordInput" type="password" placeholder="Minimal 6 karakter" minlength="6" autocomplete="new-password" required>
+            </div>
+          </label>
+          <button class="btn btn-primary full" type="submit" style="margin-top: 14px;">
+            <i class="fa-solid fa-check-to-slot"></i> Simpan Password Baru
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
