@@ -41,7 +41,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         type : "free",
         rating: 8.8,
-        poster: "./Images/renegade-immortal.jpg",
+        poster: renegade-immortal.jpg",
         description: "Wang Lin memulai perjalanan kultivasinya dari seorang pemuda biasa.",
         episodes: Array.from({ length: 159 }, (_, index) => {
             const epNum = index + 1;
@@ -67,7 +67,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster: "./Images/BTTH SESON 5.jpg",
+        poster: BTTH SESON 5.jpg",
         description: "Xiao Yan kehilangan kekuatannya secara misterius dan melanjutkan perjalanan kultivasinya di musim kelima.",
         episodes: Array.from({ length: 211 }, (_, index) => {
             const epNum = index + 1;
@@ -92,7 +92,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.5,
         type: "free",
-        poster: "./Images/perfect-world.jpg",
+        poster: perfect-world.jpg",
         description: "Shi Hao adalah seorang anak berbakat yang tumbuh dalam dunia penuh kekuatan.",
         episodes: Array.from({ length: 288 }, (_, index) => {
             const epNum = index + 1;
@@ -115,7 +115,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: "./Images/jade-dynasty.jpg",
+        poster:jade-dynasty.jpg",
         description: "Zhang Xiaofan selamat dari pembantaian desanya dan bergabung dengan Sekte Qingyun, memulai takdirnya yang luar biasa.",
         episodes: Array.from({ length: 86 }, (_, index) => {
             const epNum = index + 1;
@@ -135,7 +135,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: "./Images/swallowed-star.jpg",
+        poster: swallowed-star.jpg",
         description: "Luo Feng berjuang di dunia masa depan yang hancur akibat virus misterius dan invasi monster raksasa.",
         episodes: Array.from({ length: 242 }, (_, index) => {
             const epNum = index + 1;
@@ -155,7 +155,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.4,
         type: "free",
-        poster: "./Images/refining-qi-100000-years.jpg",
+        poster: refining-qi-100000-years.jpg",
         description: "Lu Yang telah berkultivasi dan menyempurnakan Qi selama 100.000 tahun, terjebak di tingkat Qi Refining tanpa bisa naik tingkat, namun memiliki kekuatan yang luar biasa.",
         episodes: Array.from({ length: 379 }, (_, index) => {
             const epNum = index + 1;
@@ -178,7 +178,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.8,
         type: "free",
-        poster: "./Images/shrouding-the-heavens.jpg",
+        poster: shrouding-the-heavens.jpg",
         description: "Ye Fan dan teman-temannya terseret ke dunia lain oleh sembilan naga penarik peti mati misterius, memulai perjalanan kultivasi yang epik di alam semesta yang luas.",
         episodes: Array.from({ length: 182 }, (_, index) => {
             const epNum = index + 1;
@@ -198,7 +198,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.6,
         type: "free",
-        poster: "./Images/martial-master.jpg",
+        poster:martial-master.jpg",
         description: "Qin Chen, seorang ahli martial arts legendaris yang dikhianati dan mati, terlahir kembali di tubuh seorang pemuda untuk membalas dendam dan mencapai puncak kekuatan.",
         episodes: Array.from({ length: 694 }, (_, index) => {
             const epNum = index + 1;
@@ -218,7 +218,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.8,
         type: "free",
-        poster: "./Images/beyond-times-gaze.jpg",
+        poster:beyond-times-gaze.jpg",
         description: "Sebuah kisah epik kultivasi penuh misteri yang membawa penonton melintasi ruang, waktu, dan takdir dunia fantasi yang luas.",
         episodes: Array.from({ length: 40 }, (_, index) => {
             const epNum = index + 1;
@@ -241,7 +241,7 @@ const DONGHUA_LIST = [
         status: "Ongoing",
         rating: 8.7,
         type: "free",
-        poster: "./Images/azure-legacy.jpg",
+        poster:azure-legacy.jpg",
         description: "Meng Chuan bertekad menjadi yang terkuat untuk membalas dendam keluarganya dan melindungi umat manusia dari invasi iblis yang kejam.",
         episodes: Array.from({ length: 95 }, (_, index) => {
             const epNum = index + 1;
@@ -264,7 +264,7 @@ const DONGHUA_LIST = [
         status: "Completed",
         rating: 8.7,
         type: "free",
-        poster: "./Images/tomb-of-fallen-gods-s3.jpg",
+        poster:tomb-of-fallen-gods-s3.jpg",
         description: "Chen Nan bangkit kembali setelah ribuan tahun di makam para dewa. Musim ketiga ini melanjutkan pertarungan sengit penuh misteri hingga cerita akhirnya telah tamat.",
         episodes: Array.from({ length: 52 }, (_, index) => {
             const epNum = index + 1;
