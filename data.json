@@ -3,43 +3,153 @@
         "id": "renegade-immortal",
         "title": "Renegade Immortal",
         "chineseTitle": "仙逆",
-        "genre": [
-            "Action",
-            "Adventure",
-            "Fantasy",
-            "Cultivation"
-        ],
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
         "status": "Ongoing",
         "type": "free",
         "rating": 8.8,
         "poster": "./Images/renegade-immortal.jpg",
         "description": "Wang Lin memulai perjalanan kultivasinya dari seorang pemuda biasa.",
         "episodes": [
-            {
-                "episode_number": 1,
-                "title": "Episode 1",
-                "video_url": "https://ok.ru/videoembed/6985057634994"
-            },
-            {
-                "episode_number": 2,
-                "title": "Episode 2",
-                "video_url": "https://ok.ru/videoembed/6985605253810"
-            },
-            {
-                "episode_number": 3,
-                "title": "Episode 3",
-                "video_url": "https://ok.ru/videoembed/6985967143602"
-            },
-            {
-                "episode_number": 4,
-                "title": "Episode 4",
-                "video_url": "https://ok.ru/videoembed/7008755780274"
-            },
-            {
-                "episode_number": 5,
-                "title": "Episode 5",
-                "video_url": "https://ok.ru/videoembed/7031128853170"
-            }
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://ok.ru/videoembed/6985057634994" },
+            { "episode_number": 2, "title": "Episode 2", "video_url": "https://ok.ru/videoembed/6985605253810" },
+            { "episode_number": 3, "title": "Episode 3", "video_url": "https://ok.ru/videoembed/6985967143602" },
+            { "episode_number": 4, "title": "Episode 4", "video_url": "https://ok.ru/videoembed/7008755780274" },
+            { "episode_number": 5, "title": "Episode 5", "video_url": "https://ok.ru/videoembed/7031128853170" }
+        ]
+    },
+    {
+        "id": "perfect-world",
+        "title": "Perfect World",
+        "chineseTitle": "完美世界",
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.5,
+        "type": "free",
+        "poster": "./Images/perfect-world.jpg",
+        "description": "Shi Hao adalah seorang anak berbakat yang tumbuh dalam dunia penuh kekuatan.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example4" },
+            { "episode_number": 288, "title": "Episode 288", "video_url": "https://ok.ru/video/15927303408306" }
+        ]
+    },
+    {
+        "id": "jade-dynasty",
+        "title": "Jade Dynasty",
+        "chineseTitle": "诛仙",
+        "genre": ["Action", "Adventure", "Fantasy", "Romance"],
+        "status": "Ongoing",
+        "rating": 8.7,
+        "type": "free",
+        "poster": "./Images/jade-dynasty.jpg",
+        "description": "Zhang Xiaofan selamat dari pembantaian desanya dan bergabung dengan Sekte Qingyun, memulai takdirnya yang luar biasa.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example5" },
+            { "episode_number": 86, "title": "Episode 86", "video_url": "https://www.youtube.com/embed/example5" }
+        ]
+    },
+    {
+        "id": "swallowed-star",
+        "title": "Swallowed Star",
+        "chineseTitle": "吞噬星空",
+        "genre": ["Action", "Sci-Fi", "Fantasy", "Adventure"],
+        "status": "Ongoing",
+        "rating": 8.7,
+        "type": "free",
+        "poster": "./Images/swallowed-star.jpg",
+        "description": "Luo Feng berjuang di dunia masa depan yang hancur akibat virus misterius dan invasi monster raksasa.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example6" },
+            { "episode_number": 242, "title": "Episode 242", "video_url": "https://www.youtube.com/embed/example6" }
+        ]
+    },
+    {
+        "id": "refining-qi-100000-years",
+        "title": "100.000 Years of Refining Qi",
+        "chineseTitle": "炼气十万年",
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation", "Comedy"],
+        "status": "Ongoing",
+        "rating": 8.4,
+        "type": "free",
+        "poster": "./Images/refining-qi-100000-years.jpg",
+        "description": "Lu Yang telah berkultivasi dan menyempurnakan Qi selama 100.000 tahun, terjebak di tingkat Qi Refining tanpa bisa naik tingkat, namun memiliki kekuatan yang luar biasa.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example7" },
+            { "episode_number": 379, "title": "Episode 379", "video_url": "https://anichin-player.web.id/index.php?video=kI60snDXmDXuKIC66" }
+        ]
+    },
+    {
+        "id": "shrouding-the-heavens",
+        "title": "Shrouding the Heavens",
+        "chineseTitle": "遮天",
+        "genre": ["Action", "Adventure", "Fantasy", "Sci-Fi", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.8,
+        "type": "free",
+        "poster": "./Images/shrouding-the-heavens.jpg",
+        "description": "Ye Fan dan teman-temannya terseret ke dunia lain oleh sembilan naga penarik peti mati misterius, memulai perjalanan kultivasi yang epik di alam semesta yang luas.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example8" },
+            { "episode_number": 182, "title": "Episode 182", "video_url": "https://www.youtube.com/embed/example8" }
+        ]
+    },
+    {
+        "id": "martial-master",
+        "title": "Martial Master",
+        "chineseTitle": "武神主宰",
+        "genre": ["Action", "Adventure", "Fantasy", "Martial Arts", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.6,
+        "type": "free",
+        "poster": "./Images/martial-master.jpg",
+        "description": "Qin Chen, seorang ahli martial arts legendaris yang dikhianati dan mati, terlahir kembali di tubuh seorang pemuda untuk membalas dendam dan mencapai puncak kekuatan.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example9" },
+            { "episode_number": 694, "title": "Episode 694", "video_url": "https://www.youtube.com/embed/example9" }
+        ]
+    },
+    {
+        "id": "beyond-times-gaze",
+        "title": "Beyond Time's Gaze",
+        "chineseTitle": "光阴之外",
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.8,
+        "type": "free",
+        "poster": "./Images/beyond-times-gaze.jpg",
+        "description": "Sebuah kisah epik kultivasi penuh misteri yang membawa penonton melintasi ruang, waktu, dan takdir dunia fantasi yang luas.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example10" },
+            { "episode_number": 40, "title": "Episode 40", "video_url": "https://ok.ru/video/15866866109106" }
+        ]
+    },
+    {
+        "id": "azure-legacy",
+        "title": "Azure Legacy",
+        "chineseTitle": "沧元图",
+        "genre": ["Action", "Adventure", "Fantasy", "Martial Arts", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.7,
+        "type": "free",
+        "poster": "./Images/azure-legacy.jpg",
+        "description": "Meng Chuan bertekad menjadi yang terkuat untuk membalas dendam keluarganya dan melindungi umat manusia dari invasi iblis yang kejam.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example11" },
+            { "episode_number": 95, "title": "Episode 95", "video_url": "https://ok.ru/video/15854805519026" }
+        ]
+    },
+    {
+        "id": "tomb-of-fallen-gods-s3",
+        "title": "Tomb of Fallen Gods Season 3",
+        "chineseTitle": "墓王之王 / 神墓",
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
+        "status": "Completed",
+        "rating": 8.7,
+        "type": "free",
+        "poster": "./Images/tomb-of-fallen-gods-s3.jpg",
+        "description": "Chen Nan bangkit kembali setelah ribuan tahun di makam para dewa.",
+        "episodes": [
+            { "episode_number": 1, "title": "Episode 1", "video_url": "https://www.youtube.com/embed/example12" },
+            { "episode_number": 52, "title": "Episode 52", "video_url": "https://www.youtube.com/embed/example12" }
         ]
     }
 ]
