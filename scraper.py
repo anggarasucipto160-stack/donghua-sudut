@@ -1,24 +1,45 @@
 import json
+from bs4 import BeautifulSoup
+import requests
 
-# Nama file database JSON Anda
-DATA_FILE = 'data.json'
+# Menggunakan URL halaman episode Perfect World dari situs anichin.moe
+target_url = "https://anichin.moe/perfect-world-episode-01-subtitle-indonesia/"
 
-def update_data():
-    try:
-        # Membaca data yang ada di data.json
-        with open(DATA_FILE, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        data = []
+# Mengirim request dengan headers agar tidak diblokir oleh situs
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+}
+response = requests.get(target_url, headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
 
-    print(f"Berhasil memuat {len(data)} data donghua.")
+# Mengambil URL video iframe secara otomatis dari elemen div.video-content
+iframe_tag = soup.select_one("div.video-content iframe")
+video_url = iframe_tag["src"] if iframe_tag else ""
 
-    # Menyimpan kembali perubahan ke data.json
-    with open(DATA_FILE, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
-    
-    print("File data.json berhasil diperbarui!")
+# Struktur data baru yang memperbarui episode pertama dan menghapus data lama
+data = [
+    {
+        "id": "perfect-world",
+        "title": "Perfect World",
+        "chineseTitle": "完美世界",
+        "genre": ["Action", "Adventure", "Fantasy", "Cultivation"],
+        "status": "Ongoing",
+        "rating": 8.5,
+        "type": "free",
+        "poster": "./Images/perfect-world.jpg",
+        "description": "Shi Hao adalah seorang anak berbakat yang tumbuh dalam dunia penuh kekuatan.",
+        "episodes": [
+            {
+                "episode_number": 1,
+                "title": "Episode 1",
+                "video_url": video_url,  # Otomatis terisi link video dari anichin.moe
+            }
+        ],
+    }
+]
 
-if __name__ == "__main__":
-    update_data()
-  
+# Menyimpan hasilnya ke dalam file data.json secara otomatis
+with open("data.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+print("File data.json berhasil diperbarui secara otomatis!")
